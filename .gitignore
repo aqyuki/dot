@@ -1,0 +1,8 @@
+# fish
+**/fish/completions
+**/fish/conf.d
+**/fish/fish_variables
+
+# neovim
+**/nvim/lazy-lock.json
+**/nvim/lazyvim.json
