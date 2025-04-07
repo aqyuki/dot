@@ -24,7 +24,7 @@ gui:
     "*": "#babbf1"
 customCommands:
   - key: "C"
-    command: "gitmoji -c"
+    command: czg
     subprocess: true
     context: files
-    description: "Creating commits with gitmoji"
+    description: Create commit with cz-git
