@@ -25,6 +25,11 @@ keymap.set("n", "<Leader>O", "O<Esc>^Da", opts)
 -- Jumplist
 keymap.set("n", "<C-m>", "<C-i>", opts)
 
+-- New tab
+keymap.set("n", "te", ":tabedit")
+keymap.set("n", "<tab>", ":tabnext<Return>", opts)
+keymap.set("n", "<s-tab>", ":tabprev<Return>", opts)
+
 -- Split window
 keymap.set("n", "s-", ":split<Return>", opts)
 keymap.set("n", "s\\", ":vsplit<Return>", opts)
