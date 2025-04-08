@@ -7,6 +7,9 @@ set -Ux XDG_CACHE_HOME $HOME/.cache
 set -Ux XDG_DATA_HOME $HOME/.local/share
 set -Ux XDG_STATE_HOME $HOME/.local/state
 
+set -Ux XDG_BIN_HOME $HOME/.local/bin
+fish_add_path $XDG_BIN_HOME
+
 # setup go command
 fish_add_path /usr/local/go/bin
 fish_add_path (go env GOBIN)
