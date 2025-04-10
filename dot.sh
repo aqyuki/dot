@@ -7,7 +7,7 @@ readonly OS
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 readonly SCRIPT_DIR
 
-readonly DEPENDENCIES=("neovim" "ripgrep" "fd" "fish" "starship" "fzf" "ghq" "mise")
+readonly DEPENDENCIES=("neovim" "fish" "starship" "ghq" "mise")
 readonly CONFIG_DIR="${SCRIPT_DIR}/config"
 readonly TARGET_DIR="${XDG_CONFIG_HOME:-$HOME/.config}"
 
