@@ -6,7 +6,6 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 readonly OS
 readonly SCRIPT_DIR
 readonly DEPENDENCIES=("neovim" "ripgrep" "fd" "fish" "starship" "fzf" "ghq" "mise")
-readonly MODULES=("git" "nvim" "fish" "mise" "lazygit")
 readonly CONFIG_DIR="${SCRIPT_DIR}/config"
 readonly TARGET_DIR="${XDG_CONFIG_HOME:-$HOME/.config}"
 
@@ -26,19 +25,21 @@ function install-darwin() {
 }
 
 function deploy() {
-  for module in "${MODULES[@]}"; do
-    src="${CONFIG_DIR}/${module}"
-    dst="${TARGET_DIR}/${module}"
+  for item in "$CONFIG_DIR"/*; do
+    name=$(basename "$item")
 
-    if [[ -d "$src" ]]; then
+    src="${CONFIG_DIR}/${name}"
+    dst="${TARGET_DIR}/${name}"
+
+    if [[ -e "$src" ]]; then
       if [[ -L "$dst" || -e "$dst" ]]; then
-        echo "[Skip] ${module}: ${dst} already exists."
+        echo "[Skip] ${item}: ${dst} already exists."
       else
         ln -s "$src" "$dst"
         echo "[Linked] ${src} -> ${dst}"
       fi
     else
-      echo "[Skip] ${module}: source directory ${src} does not exist."
+      echo "[Skip] ${item}: source ${src} does not exist."
     fi
   done
 }
