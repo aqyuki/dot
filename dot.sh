@@ -17,7 +17,7 @@ function install-arch() {
     yay -S --needed --noconfirm "${DEPENDENCIES[@]}"
   else
     sudo pacman -Syu
-    sudo pacman -Syu --needed --noconfirm "${DEPENDENCIES[@]}"
+    sudo pacman -S --needed --noconfirm "${DEPENDENCIES[@]}"
   fi
 }
 
