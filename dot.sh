@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 OS="$(uname)"
 readonly OS
