@@ -28,3 +28,8 @@ customCommands:
     subprocess: true
     context: files
     description: Create commit with cz-git
+  - key: "C"
+    command: czg emoji
+    subprocess: true
+    context: files
+    description: Create commit with Emoji with cz-git
