@@ -23,7 +23,7 @@ gui:
   authorColors:
     "*": "#babbf1"
 customCommands:
-  - key: "C"
+  - key: "c"
     command: czg
     subprocess: true
     context: files
