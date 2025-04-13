@@ -25,6 +25,11 @@ require("lazy").setup({
     { import = "plugins" },
     { import = "plugins.util" },
   },
+  dev = {
+    path = "~/projects/github.com/",
+    patterns = {},
+    fallback = false,
+  },
   checker = {
     enabled = true,
     notify = false,
