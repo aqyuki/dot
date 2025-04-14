@@ -24,6 +24,7 @@ require("lazy").setup({
     -- import/override with your plugins
     { import = "plugins" },
     { import = "plugins.util" },
+    { import = "plugins.lang" },
   },
   dev = {
     path = "~/projects/github.com/",
