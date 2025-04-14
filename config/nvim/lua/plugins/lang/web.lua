@@ -1,8 +1,16 @@
-local formatter = {
-  "prettier",
-  "biome",
-  stop_after_first = true,
-}
+local formatter = function(_)
+  local util = require("util.format")
+
+  if util.exist_biome_setting() then
+    return { "biome" }
+  end
+
+  if util.exist_prettier_setting() and not util.exist_biome_setting() then
+    return { "prettier" }
+  end
+
+  return { "prettier" }
+end
 
 return {
   "stevearc/conform.nvim",
@@ -15,19 +23,6 @@ return {
       css = formatter,
       scss = formatter,
       html = formatter,
-    },
-    formatters = {
-      prettier = {
-        condition = function()
-          return not require("util.format").exist_biome_setting()
-        end,
-      },
-      biome = {
-        condition = function()
-          local util = require("util.format")
-          return util.exist_biome_setting() and not util.exist_prettier_setting()
-        end,
-      },
     },
   },
   {
