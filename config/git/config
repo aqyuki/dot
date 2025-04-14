@@ -9,6 +9,9 @@
 [includeIf "gitdir:~/projects/github.com/yumemi-inc/"]
   path = ~/.config/git/profiles/yumemi
 
+[include]
+  path = ~/.config/git/local.conf
+
 [init]
 	defaultBranch = master
 
