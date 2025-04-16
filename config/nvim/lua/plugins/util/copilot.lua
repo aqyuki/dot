@@ -17,11 +17,15 @@ end
 
 return {
   {
-    "zbirenbaum/copilot.lua",
-    cond = is_company_dir,
-  },
-  {
-    "giuxtaposition/blink-cmp-copilot",
-    cond = is_company_dir,
+    "saghen/blink.cmp",
+    opts = {
+      sources = {
+        providers = {
+          copilot = {
+            enabled = is_company_dir,
+          },
+        },
+      },
+    },
   },
 }
