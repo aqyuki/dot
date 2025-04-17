@@ -24,6 +24,26 @@ return {
       scss = formatter,
       html = formatter,
     },
+    formatters = {
+      prettier = {
+        cwd = require("conform.util").root_file({
+          -- https://prettier.io/docs/en/configuration.html
+          ".prettierrc",
+          ".prettierrc.json",
+          ".prettierrc.yml",
+          ".prettierrc.yaml",
+          ".prettierrc.json5",
+          ".prettierrc.js",
+          ".prettierrc.cjs",
+          ".prettierrc.mjs",
+          ".prettierrc.toml",
+          "prettier.config.js",
+          "prettier.config.cjs",
+          "prettier.config.mjs",
+          "package.json",
+        }),
+      },
+    },
   },
   {
     "williamboman/mason.nvim",
