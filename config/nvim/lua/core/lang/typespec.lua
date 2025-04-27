@@ -5,6 +5,6 @@ return {
   },
   {
     "williamboman/mason.nvim",
-    opts = { ensure_installed = "tsp-server" },
+    opts = { ensure_installed = { "tsp-server" } },
   },
 }
