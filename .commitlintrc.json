@@ -74,7 +74,16 @@
     "useAI": false,
     "aiNumber": 1,
     "themeColorCode": "",
-    "scopes": ["fish", "git", "lazygit", "mise", "neovim", "starship"],
+    "scopes": [
+      "dev",
+      "aqua",
+      "fish",
+      "git",
+      "lazygit",
+      "mise",
+      "neovim",
+      "starship"
+    ],
     "allowCustomScopes": false,
     "allowEmptyScopes": true,
     "customScopesAlign": "bottom",
