@@ -1,18 +1,12 @@
 [tools]
 atlas = "latest"
-bat = "latest"
-fd = "latest"
-fzf = "latest"
 gotestsum = "latest"
 lefthook = "latest"
-lsd = "latest"
 lua = "latest"
 node = "latest"
 "npm:cz-git" = "latest"
 "npm:czg" = "latest"
 pnpm = "latest"
-ripgrep = "latest"
-task = "latest"
 usage = "latest"
 
 [settings]
