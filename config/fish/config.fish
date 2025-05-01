@@ -20,6 +20,12 @@ abbr -a lg lazygit
 # activate mise
 mise activate fish | source
 
+# aqua settings
+set -Ux AQUA_ROOT_DIR $XDG_DATA_HOME/aquaproj-aqua
+set -Ux AQUA_GLOBAL_CONFIG "$XDG_CONFIG_HOME/aqua/aqua.yaml"
+fish_add_path $AQUA_ROOT_DIR/bin
+aqua completion fish | source
+
 # GHQ settings
 set -Ux GHQ_ROOT $HOME/projects
 
