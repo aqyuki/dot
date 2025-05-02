@@ -18,8 +18,8 @@ fish_add_path (go env GOBIN)
 abbr -a lg lazygit
 
 # activate mise
-mise completion fish | source
 mise activate fish | source
+mise completion fish | source
 
 # aqua settings
 set -Ux AQUA_ROOT_DIR $XDG_DATA_HOME/aquaproj-aqua
