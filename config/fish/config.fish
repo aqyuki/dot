@@ -18,6 +18,7 @@ fish_add_path (go env GOBIN)
 abbr -a lg lazygit
 
 # activate mise
+mise completion fish | source
 mise activate fish | source
 
 # aqua settings
