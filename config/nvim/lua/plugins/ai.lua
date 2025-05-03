@@ -22,6 +22,7 @@ end
 return {
   {
     "saghen/blink.cmp",
+    optional = true,
     opts = {
       sources = {
         providers = {

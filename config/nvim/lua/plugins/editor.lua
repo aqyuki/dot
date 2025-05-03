@@ -1,6 +1,7 @@
 return {
   {
     "folke/snacks.nvim",
+    optional = true,
     opts = {
       picker = {
         sources = {
@@ -33,6 +34,7 @@ return {
   },
   {
     "folke/which-key.nvim",
+    optional = true,
     opts = {
       spec = { { mode = "n", { "<localleader>t", group = "Terminal" } } },
     },
