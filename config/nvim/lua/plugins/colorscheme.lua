@@ -5,6 +5,9 @@ return {
     opts = {
       terminal = true,
     },
+    config = function(_, opts)
+      require("ayu").setup(opts)
+    end,
   },
   {
     "rebelot/kanagawa.nvim",
