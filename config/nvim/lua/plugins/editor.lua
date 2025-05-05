@@ -19,6 +19,11 @@ return {
     },
   },
   {
+    "petertriho/nvim-scrollbar",
+    event = "LazyFile",
+    opts = {},
+  },
+  {
     "akinsho/toggleterm.nvim",
     lazy = true,
     event = "VeryLazy",
@@ -33,6 +38,11 @@ return {
         vim.keymap.set("t", "<Space>", "<Space>", { buffer = t.bufnr })
       end,
     },
+  },
+  {
+    "sindrets/diffview.nvim",
+    event = "VeryLazy",
+    opts = {},
   },
   {
     "folke/which-key.nvim",
