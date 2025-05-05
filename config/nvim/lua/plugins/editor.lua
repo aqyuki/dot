@@ -3,6 +3,7 @@ return {
     "folke/snacks.nvim",
     optional = true,
     opts = {
+      bigfile = { enabled = true },
       picker = {
         sources = {
           explorer = {
@@ -14,6 +15,7 @@ return {
           },
         },
       },
+      quickfile = { enabled = true },
     },
   },
   {
