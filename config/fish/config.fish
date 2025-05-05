@@ -2,6 +2,9 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
+set -Ux EDITOR (which nvim)
+set -Ux VISUAL (which nvim)
+
 set -Ux XDG_CONFIG_HOME $HOME/.config
 set -Ux XDG_CACHE_HOME $HOME/.cache
 set -Ux XDG_DATA_HOME $HOME/.local/share
