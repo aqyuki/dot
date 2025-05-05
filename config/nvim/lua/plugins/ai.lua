@@ -21,16 +21,10 @@ end
 
 return {
   {
-    "saghen/blink.cmp",
-    optional = true,
-    opts = {
-      sources = {
-        providers = {
-          copilot = {
-            enabled = is_company_dir,
-          },
-        },
-      },
-    },
+    "github/copilot.vim",
+    lazy = true,
+    event = "BufReadPost",
+    cmd = "Copilot",
+    cond = is_company_dir(),
   },
 }
