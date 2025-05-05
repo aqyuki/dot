@@ -3,6 +3,7 @@ return {
     "folke/snacks.nvim",
     optional = true,
     opts = {
+      bigfile = { enabled = true },
       picker = {
         sources = {
           explorer = {
@@ -14,7 +15,13 @@ return {
           },
         },
       },
+      quickfile = { enabled = true },
     },
+  },
+  {
+    "petertriho/nvim-scrollbar",
+    event = "LazyFile",
+    opts = {},
   },
   {
     "akinsho/toggleterm.nvim",
@@ -31,6 +38,11 @@ return {
         vim.keymap.set("t", "<Space>", "<Space>", { buffer = t.bufnr })
       end,
     },
+  },
+  {
+    "sindrets/diffview.nvim",
+    event = "VeryLazy",
+    opts = {},
   },
   {
     "folke/which-key.nvim",

@@ -11,4 +11,19 @@ return {
       },
     },
   },
+  {
+    "Wansmer/treesj",
+    keys = {
+      {
+        mode = "n",
+        "<leader>cj",
+        function()
+          require("treesj").toggle()
+        end,
+        desc = "toggle by TreeSJ",
+      },
+    },
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    opts = {},
+  },
 }
