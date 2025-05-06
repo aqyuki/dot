@@ -19,6 +19,7 @@ fish_add_path (go env GOBIN)
 
 # add alias
 abbr -a lg lazygit
+abbr -a cgr "cd (git rev-parse --show-superproject-working-tree --show-toplevel | head -1)"
 
 # activate mise
 mise activate fish | source
