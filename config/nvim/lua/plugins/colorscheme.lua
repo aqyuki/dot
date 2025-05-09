@@ -28,4 +28,12 @@ return {
       transparent = false,
     },
   },
+  {
+    "cocopon/iceberg.vim",
+    lazy = true,
+  },
+  {
+    "shaunsingh/nord.nvim",
+    lazy = true,
+  },
 }
