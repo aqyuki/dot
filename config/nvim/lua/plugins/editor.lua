@@ -19,6 +19,15 @@ return {
     },
   },
   {
+    "akinsho/bufferline.nvim",
+    optional = true,
+    opts = {
+      options = {
+        separator_style = "slant",
+      },
+    },
+  },
+  {
     "petertriho/nvim-scrollbar",
     event = "LazyFile",
     opts = {},
