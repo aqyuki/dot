@@ -11,19 +11,6 @@ return {
       },
     },
   },
-  -- LazyVimがMason v2.0に対応するまでバージョンを固定
-  {
-    "mason-org/mason.nvim",
-    optional = true,
-    version = "1.11.0",
-    pin = true,
-  },
-  {
-    "mason-org/mason-lspconfig.nvim",
-    optional = true,
-    version = "1.32.0",
-    pin = true,
-  },
   {
     "Wansmer/treesj",
     keys = {
