@@ -5,7 +5,7 @@ return {
     opts = { ensure_installed = "typespec" },
   },
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     optional = true,
     opts = { ensure_installed = { "tsp-server" } },
   },
