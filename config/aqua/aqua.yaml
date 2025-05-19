@@ -28,3 +28,6 @@ packages:
   - name: Nukesor/pueue/pueue@v4.0.0
   - name: dalance/procs@v0.14.10
   - name: golang-migrate/migrate@v4.18.3
+  - name: k1LoW/runn@v0.130.2
+  - name: k1LoW/octocov@v0.67.1
+  - name: evilmartians/lefthook@v1.11.13
