@@ -1,6 +1,5 @@
 #!/bin/bash
 
-TMP_DIR="/tmp/dot"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 OS="$(uname)"
 
