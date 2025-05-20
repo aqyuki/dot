@@ -1,7 +1,4 @@
 [tools]
-atlas = "latest"
-gotestsum = "latest"
-lefthook = "latest"
 lua = "latest"
 node = "latest"
 "npm:cz-git" = "latest"
