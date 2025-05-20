@@ -31,3 +31,5 @@ packages:
   - name: k1LoW/runn@v0.130.2
   - name: k1LoW/octocov@v0.67.2
   - name: evilmartians/lefthook@v1.11.13
+  - name: ariga/atlas@v0.33.0
+  - name: gotestyourself/gotestsum@v1.12.2
