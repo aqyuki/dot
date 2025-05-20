@@ -3,14 +3,15 @@
 TMP_DIR="/tmp/dot"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+readonly XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+readonly XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+readonly XDG_BIN_DIR="${XDG_BIN_DIR:-$XDG_DATA_HOME/bin}"
+
 readonly DEPENDENCIES=("git" "curl")
-# TEMPORARY_DEPENDENCIES is a dependency that is required during installation but will eventually be removed
-readonly TEMPORARY_DEPENDENCIES=("github-cli")
 readonly PACKAGES=("neovim" "fish" "starship")
 
 readonly CONFIG_DIR="${SCRIPT_DIR}/config"
-readonly TARGET_DIR="${XDG_CONFIG_HOME:-$HOME/.config}"
-readonly USER_BIN_DIR="${XDG_BIN_HOME:-$HOME/.local/bin}"
+readonly USER_BIN_DIR="${XDG_BIN_HOME}"
 
 function pre-install() {
   # create temporary directory
@@ -20,41 +21,27 @@ function pre-install() {
 }
 
 function post-install() {
-  # remove temporary dependencies
-  echo "Uninstalling temporary dependencies..."
-  yay -Rs --noconfirm "${TEMPORARY_DEPENDENCIES[@]}"
-
   #remove temporary directory
   rm -rf "$TMP_DIR"
 }
 
 function install-aqua() {
   if aqua version >/dev/null 2>&1; then
-    echo "Aqua is already installed."
+    echo "aqua already installed."
     return
   fi
 
-  echo "Installing aqua from GitHub Releases..."
-  mkdir --parent "$TMP_DIR/aqua/dist"
-  cd "$TMP_DIR/aqua" || exit 1
-
-  gh release download -R aquaproj/aqua -p aqua_linux_amd64.tar.gz
-  gh attestation verify aqua_linux_amd64.tar.gz \
-    -R aquaproj/aqua \
-    --signer-workflow suzuki-shunsuke/go-release-workflow/.github/workflows/release.yaml
-  tar -zxvf "$TMP_DIR/aqua/aqua_linux_amd64.tar.gz" -C "$TMP_DIR/aqua/dist"
-  mv "$TMP_DIR/aqua/aqua" "$USER_BIN_DIR/aqua"
-
-  cd "$SCRIPT_DIR" || exit 1
+  echo "Installing aqua..."
+  curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v3.1.2/aqua-installer | bash
 }
 
 function install-mise() {
   if mise version >/dev/null 2>&1; then
-    echo "Mise is already installed."
+    echo "mise already installed."
     return
   fi
 
-  echo "Installing mise from GitHub Releases..."
+  echo "Installing mise..."
   curl https://mise.run | MISE_INSTALL_PATH="${USER_BIN_DIR}/mise" sh
 }
 
@@ -73,8 +60,8 @@ function install() {
 
   # upgrate system and install dependencies
   echo "Updating system and installing dependencies..."
-  sudo pacman -Syu
-  sudo pacman -S --needed "${DEPENDENCIES[@]}" "${TEMPORARY_DEPENDENCIES[@]}"
+  sudo pacman -Sy
+  sudo pacman -S --needed "${DEPENDENCIES[@]}"
 
   # if `yay` is not installed, install it.
   if ! command -v yay >/dev/null 2>&1; then
@@ -106,7 +93,7 @@ function deploy() {
     name=$(basename "$item")
 
     src="${CONFIG_DIR}/${name}"
-    dst="${TARGET_DIR}/${name}"
+    dst="${XDG_CONFIG_HOME}/${name}"
 
     if [[ -e "$src" ]]; then
       if [[ -L "$dst" || -e "$dst" ]]; then
