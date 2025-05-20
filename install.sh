@@ -2,28 +2,16 @@
 
 TMP_DIR="/tmp/dot"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+OS="$(uname)"
 
 readonly XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 readonly XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
 readonly XDG_BIN_DIR="${XDG_BIN_DIR:-$XDG_DATA_HOME/bin}"
 
-readonly DEPENDENCIES=("git" "curl")
-readonly PACKAGES=("neovim" "fish" "starship")
+readonly PACKAGES=("git" "curl" "neovim" "fish" "starship")
 
 readonly CONFIG_DIR="${SCRIPT_DIR}/config"
 readonly USER_BIN_DIR="${XDG_BIN_HOME}"
-
-function pre-install() {
-  # create temporary directory
-  rm -rf "$TMP_DIR"
-  mkdir --parent "$TMP_DIR"
-  mkdir --parent "$USER_BIN_DIR"
-}
-
-function post-install() {
-  #remove temporary directory
-  rm -rf "$TMP_DIR"
-}
 
 function install-aqua() {
   if aqua version >/dev/null 2>&1; then
@@ -55,30 +43,27 @@ function install-rust() {
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 }
 
-function install() {
-  pre-install
+function install-darwin() {
+  if ! command -v brew >/dev/null 2>&1; then
+    echo "Homebrew is required to run this script."
+    echo "Please refer to the following link to install Homebrew"
+    echo "Ref : https://brew.sh/ja/"
+  fi
 
+  echo "Updating system and installing dependencies..."
+  brew update
+  brew install "${PACKAGES[@]}"
+
+  install-mise
+  install-aqua
+  install-rust
+}
+
+function install-linux() {
   # upgrate system and install dependencies
   echo "Updating system and installing dependencies..."
   sudo pacman -Sy
-  sudo pacman -S --needed "${DEPENDENCIES[@]}"
-
-  # if `yay` is not installed, install it.
-  if ! command -v yay >/dev/null 2>&1; then
-    echo "Installing yay..."
-    git clone https://aur.archlinux.org/yay.git "$TMP_DIR/yay"
-
-    cd /tmp/yay || exit 1
-    makepkg -sir --noconfirm
-
-    cd "$SCRIPT_DIR" || exit 1
-    rm -rf /tmp/yay
-
-    echo "Installed yay successfully."
-  fi
-
-  echo "Installing packages..."
-  yay -S --needed "${PACKAGES[@]}"
+  sudo pacman -S --needed "${PACKAGES[@]}"
 
   # install from github
   install-mise
@@ -109,7 +94,11 @@ function deploy() {
 }
 
 function main() {
-  install
+  if [ "$OS" = "Darwin" ]; then
+    install-darwin
+  elif [ "$OS" = "Linux" ]; then
+    install-linux
+  fi
   deploy
 }
 main
