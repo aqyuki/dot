@@ -1,10 +1,11 @@
 [tools]
-lua = "latest"
-node = "latest"
+lua = "5.4.7"
+node = "23.11.1"
 "npm:cz-git" = "latest"
 "npm:czg" = "latest"
-pnpm = "latest"
-usage = "latest"
+pnpm = "10.11.0"
+usage = "2.1.1"
+yarn = "4.5.3"
 
 [settings]
 experimental = true
