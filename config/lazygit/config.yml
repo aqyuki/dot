@@ -19,17 +19,16 @@ gui:
       - "#c6d0f5"
     searchingActiveBorderColor:
       - "#e5c890"
-
   authorColors:
     "*": "#babbf1"
 customCommands:
   - key: "c"
     command: czg
-    subprocess: true
     context: files
     description: Create commit with cz-git
+    output: terminal
   - key: "C"
     command: git commit
-    subprocess: true
     context: files
     description: Create commit
+    output: terminal
