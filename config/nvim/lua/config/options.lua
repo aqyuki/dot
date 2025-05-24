@@ -2,7 +2,6 @@
 vim.g.lazyvim_picker = "snacks"
 vim.g.lazyvim_cmp = "blink.cmp"
 vim.g.lazyvim_blink_main = true
-vim.g.lazyvim_mini_snippets_in_completion = true
 
 -- Spell check
 vim.opt.spelllang = { "cjk", "en" }
