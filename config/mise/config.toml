@@ -1,5 +1,6 @@
 [tools]
 coursier = "2.1.24"
+java = "temurin-21.0.7+6.0.LTS"
 lua = "5.4.7"
 node = "23.11.1"
 "npm:cz-git" = "latest"
