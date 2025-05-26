@@ -1,5 +1,5 @@
 [tools]
-java = "17.0.15+6"
+java = "21.0.7+6.0.LTS"
 lua = "5.4.7"
 node = "23.11.1"
 "npm:cz-git" = "latest"
