@@ -1,13 +1,13 @@
 [tools]
-coursier = "2.1.24"
+coursier = "latest"
 java = "temurin-21.0.7+6.0.LTS"
-lua = "5.4.7"
+lua = "latest"
 node = "23.11.1"
 "npm:cz-git" = "latest"
 "npm:czg" = "latest"
-pnpm = "10.11.0"
-usage = "2.1.1"
-yarn = "4.5.3"
+pnpm = "latest"
+usage = "latest"
+yarn = "latest"
 
 [settings]
 experimental = true
