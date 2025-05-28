@@ -22,13 +22,8 @@ gui:
   authorColors:
     "*": "#babbf1"
 customCommands:
-  - key: "c"
+  - key: "C"
     command: czg
     context: files
     description: Create commit with cz-git
-    output: terminal
-  - key: "C"
-    command: git commit
-    context: files
-    description: Create commit
     output: terminal
